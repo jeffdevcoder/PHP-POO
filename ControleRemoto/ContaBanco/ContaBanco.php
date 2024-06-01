@@ -1,28 +1,24 @@
 <?php
-class ContaBanco 
-{
+class ContaBanco {
     public $numConta;
     protected $tipo;
     private $dono;
     private $saldo;
     private $status; 
 
-    public function __construct() 
-    {
+    public function __construct() {
         $this->setSaldo(0);
         $this->setStatus(false); 
         echo "<p>Conta criada com sucesso!</p>";
     }
 
-    public function abrirConta($t) 
-    {
+    public function abrirConta($t) {
         $this->setTipo($t);
         $this->status = true;
         if ($t == 'CC') $this->setSaldo(50);
         if ($t == 'CP') $this->setSaldo(150);
     }
-    public function fecharConta() 
-    {
+    public function fecharConta() {
         if($this->getSaldo() > 0) {
             echo "<p>Conta ainda há dinheiro, não há como encerrar a conta.</p>";
         } elseif ($this->getSaldo() < 0) {
@@ -31,8 +27,7 @@ class ContaBanco
             $this->setStatus(false);
         }
     }
-    public function depositar($v) 
-    {
+    public function depositar($v) {
         if ($this->getStatus() == true) {
             $this->setSaldo($this->getSaldo() + $v);
             echo "<p>Deposito de R$$v na conta de " . $this->getDono() . "</p>";
@@ -40,8 +35,7 @@ class ContaBanco
             echo "<p>Conta encerrada, não é possível depositar.</p>";
         }
     }
-    public function sacar($v) 
-    {
+    public function sacar($v) {
         if ($this->getStatus()) {
             if ($this->getSaldo() > $v) {
                 $this->setSaldo($this->getSaldo() -$v);
@@ -53,8 +47,7 @@ class ContaBanco
             echo "<p>Não há como sacar em uma conta fechada.</p>";
         }
     }
-    public function pagarMensal() 
-    {   
+    public function pagarMensal() {   
         if ($this->getTipo() == 'CC') {
             $v = 12;
         }
@@ -70,44 +63,34 @@ class ContaBanco
         }
     }
 
-    public function getNumConta() 
-    {
+    public function getNumConta() {
         return $this->numConta;   
     }
-    public function setNumConta($n) 
-    {
+    public function setNumConta($n) {
         $this->numConta = $n;
     }
-    public function getTipo() 
-    {
+    public function getTipo() {
         return $this->tipo;
     }
-    public function setTipo($t) 
-    {
+    public function setTipo($t) {
         $this->tipo = $t;
     }
     public function getDono() {
-
         return $this->dono;
     }
-    public function setDono($d) 
-    {
+    public function setDono($d) {
         $this->dono = $d;
     }
-    public function getSaldo() 
-    {
+    public function getSaldo() {
         return $this->saldo;
     }
-    public function setSaldo($s) 
-    {
+    public function setSaldo($s) {
         $this->saldo = $s;
     }
-    public function getStatus() 
-    {
+    public function getStatus() {
         return $this->status;
     }
-    public function setStatus($s) 
-    {
+    public function setStatus($s) {
         $this->status = $s;
     }
 

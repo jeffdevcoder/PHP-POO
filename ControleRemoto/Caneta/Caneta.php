@@ -1,39 +1,32 @@
 <?php 
 
-class Caneta 
-{
+class Caneta {
     private $cor;
     public $modelo;
     private $ponta;
     private $tampada;
 
-    public function __construct($m, $c, $p) 
-    {
+    public function __construct($m, $c, $p) {
         $this->modelo = $m;
         $this->cor = $c;
         $this->ponta = $p;
         $this->tampar();
     }
 
-    public function tampar() 
-    {
+    public function tampar() {
         $this->tampada = true;
     }
 
-    public function getModelo() 
-    {
+    public function getModelo() {
         return $this->modelo;
     }
-    public function setModelo($m) 
-    {
+    public function setModelo($m) {
         $this->modelo = $m;
     }
-    public function getPonta() 
-    {
+    public function getPonta() {
         return $this->ponta;
     }
-    public function setPonta($p) 
-    {
+    public function setPonta($p) {
         $this->ponta = $p;
     }
 
